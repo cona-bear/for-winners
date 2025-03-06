@@ -10,7 +10,7 @@ from slack_sdk.errors import SlackApiError
 from webdriver_manager.chrome import ChromeDriverManager
 
 
-SLACK_TOKEN = os.getenv("SLACK_TOkEN")
+SLACK_TOKEN = os.getenv("SLACK_TOKEN")
 CHANNEL_ID = os.getenv("CHANNEL_ID")
 
 # Set up Selenium WebDriver
