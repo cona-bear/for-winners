@@ -1,0 +1,29 @@
+name: Send Slack Message
+
+on:
+  schedule:
+    - cron: '0 2 * * *'  # 11 AM KST
+  workflow_dispatch:
+
+jobs:
+  send_message:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Dependencies
+        run: pip install -r src/requirements.txt
+
+      - name: Run Slack Message Script
+        env:
+          SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
+          CHANNEL_ID: ${{ secrets.CHANNEL_ID }}
+        run: python src/main.py
+
