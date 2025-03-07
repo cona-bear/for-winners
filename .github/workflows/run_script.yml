@@ -2,7 +2,7 @@ name: Send Slack Message
 
 on:
   schedule:
-    - cron: '0 2 * * *'  # 11 AM KST
+    - cron: '55 22 * * *'  # 7:55 AM KST
   workflow_dispatch:
 
 jobs:
